@@ -14,13 +14,13 @@ import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Carregar variáveis de ambiente do arquivo .env
+# Load environment variables from the file .env
 load_dotenv()
 
-# Caminho base do projeto
+# Project Base Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Segurança: chave secreta
+# secret key
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # Debug mode
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 ]
 
-# # Definindo o modelo de usuário personalizado
+## Defining the Custom User Template
 # AUTH_USER_MODEL = 'users.Users'
 
 # Middlewares
@@ -98,7 +98,7 @@ DATABASES = {
     }
 }
 
-# Configurações de autenticação e permissões
+# Authentication and permissions settings
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -106,18 +106,18 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# Internacionalização
+# Internationalization
 LANGUAGE_CODE = "pt-br"
 TIME_ZONE = "America/Fortaleza"
 USE_I18N = True
 USE_TZ = True
 
-# Configurações de arquivos estáticos e uploads
+# Static file settings and uploads
 STATIC_URL = 'static/'
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
-# Configuração de e-mail
+# Email Configuration
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = os.getenv('EMAIL_PORT', 587)
 EMAIL_USER = os.getenv('EMAIL_USER')
@@ -126,7 +126,7 @@ EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Configurações adicionais do Django Rest Framework
+# Additional Django Rest Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
